@@ -4,7 +4,7 @@ const violeta=document.getElementById('violeta')
 const naranja=document.getElementById('naranja')
 const verde=document.getElementById('verde')
 const btnEmpezar=document.getElementById('btnEmpezar')
-const NIVEL_MAX=1
+const NIVEL_MAX=10
 class Juego {
   // nuestro objeto que sera la base de todo el Juego
   // Dentro tenemos el inicializador, el que crea el array de colores a encender y el paso de nivel
