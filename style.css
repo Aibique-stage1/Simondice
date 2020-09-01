@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: #dedede;
+  background: #b4c0cf;
   display: flex;
   align-items: center;
   height: 100vh;
@@ -69,7 +69,7 @@ body {
 .btn-start {
   width: 400px;
   height: 100px;
-  background: #ecf0f1;
+  background: #d9eef3;
   color: #2c3e50;
   font-size: 2.5rem;
   position: absolute;
