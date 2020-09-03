@@ -20,13 +20,18 @@ class Juego {
     this.inicializar=this.inicializar.bind(this)
     this.inicializar()
     this.creadorSecuencia()
-    setTimeout(this.detectarNiveles,500)
+    setTimeout(this.sublevelPosition,500)
   }
 
+
+
+
+
+  //1.INITIALIZATION-->
   // called by "constructor"--> It will initializing the Game.
   inicializar (){
     // 2 binding functions and one without it.
-    this.detectarNiveles=this.detectarNiveles.bind(this)
+    this.sublevelPosition=this.sublevelPosition.bind(this)
     this.detectarColor=this.detectarColor.bind(this)
     this.toggleBtnEmpezar()
 
@@ -51,17 +56,26 @@ class Juego {
     }
   }
 
+
+
+
+
+  //2.CREATION OF THE SEQUENCE.
   // Called by "constructor"--> It will create the sequence,that is the maximum of levels.
   //In this case is 10.
   creadorSecuencia(){
     this.secuencia=new Array(NIVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
   }
 
+
+
+
+
   // Called by "constructor"--> It detect the level we are, for that create a sublevel that will increase
   //till reach Sequence's length.
   //It will illuminate the Sequence in the respective level the user is.
   //It will detect the clicks the user make on the object.
-  detectarNiveles(){
+  sublevelPosition(){
     this.subnivel=0
     this.iluminarSecuencia()
     this.detectarClicks()
@@ -95,7 +109,7 @@ class Juego {
     }
   }
 
-  //Called by "detectarnivel"--> It does illuminate the respective colours depending in wish level the user is.
+  //Called by "sublevelPosition"--> It does illuminate the respective colours depending in wish level the user is.
   //Ex--> level 3(there are 10 levels because Sequence)--->colors to illuminate are 3.
   //First it transform the numbers of the Sequence into color 
   //Finally it illuminate the colors with the method "iluminarColor"
@@ -118,7 +132,7 @@ desiluminarColor(color){
   this.color[color].classList.remove('light')
 }
 
-// Called by "detectarNiveles"--> It register the click events the user make on the colours.
+// Called by "sublevelPosition"--> It register the click events the user make on the colours.
 detectarClicks(){
   // It associate and event to each colour, at the same time it calls the method to detect the color.
   this.color.celeste.addEventListener('click',this.detectarColor)
@@ -161,7 +175,7 @@ detectarColor(e){
     if(this.level=== (NIVEL_MAX+1)){
       this.ganoElJuego()
     }else{
-      setTimeout(this.detectarNiveles,1500)
+      setTimeout(this.sublevelPosition,1500)
     }
   }
 }else{
