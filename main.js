@@ -135,6 +135,8 @@ eliminarEventosClick(){
   this.color.verde.removeEventListener('click',this.detectarColor)
 }
 
+
+
 // Called by "detectarClicks"--> MAIN METHOD> It does compare the color the user had made click on, 
 //It throws succeed or error message to the user if he made a mistake.
 // It will pass to the next level if the click sequence was successful.
@@ -146,6 +148,11 @@ detectarColor(e){
   const numeroColor=this.colorANumero(colorDetectado)
   this.iluminarColor(colorDetectado)
 
+  //Once it's a number the color, it's time to compare it with the number in the Sequence.
+  //If both are the same, the sublevel will increase.
+  //If the sublevel is the same as the level, then increase the level.
+  //Finally if the level it's equal to the maximum level--> User passed the game "CONGRATULATIONS"
+  //Otherwise call all the methods again for the next level.
   if(numeroColor===this.secuencia[this.subnivel]){
   this.subnivel++
   if(this.subnivel===this.level){
@@ -162,11 +169,15 @@ detectarColor(e){
 }
 }
 
+
+
+//Called by "detectarColor"-->Message showed once the user pass all the levels.
 ganoElJuego(){
   swal('Felicitaciones','Ganaste el Juego','success')
   .then(this.inicializar)
 }
 
+//Called by "detectarColor"-->Message showed once the user make a mistake.
 perdioElJuego(){
   swal('Error','Lo siento, has perdido','error')
   .then(()=>{
