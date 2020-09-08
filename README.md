@@ -5,7 +5,7 @@ Here I am practicing the promises and the creation of Prototipes in JavaScript.
 
 It stars with 10 levels, the number of levels can be modify in the code changing the value of the MAX_LEVEL variable.
 
-# Game Rules
+## Game Rules
 
 In this version of the famous game "Simon says", the user will have in front four colours:
 blue, green, orange and violet.
@@ -14,7 +14,7 @@ There will be 10 levels as standard. In the first level it will illuminate 1 col
 
 If the user makes a mistake, it will show a message "sorry, you loose" otherwise the message will be "Congratulations! You won the game". In both cases the game will reset after showing the message and the button "Start Game".
 
-# Solution
+## Solution
 
 The Solution to make this Game through Javascript will consist in resolving the following points.
 
@@ -25,7 +25,7 @@ The Solution to make this Game through Javascript will consist in resolving the 
 5.In each click it must compare the colour with the colour made by the computer.
 6.The browser will show messages of error or succeed to the user. then initializing again the game.
 
-# Updates
+## Updates
 
  1.the level the user is 
  2.the maximum levels and the possibility to modify it after win or loose a game.
