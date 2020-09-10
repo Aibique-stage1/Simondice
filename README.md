@@ -27,6 +27,7 @@ The Solution to make this Game through Javascript will consist in resolving the 
 
 ## Updates
 
- 1.the level the user is 
- 2.the maximum levels and the possibility to modify it after win or loose a game.
+ 1.the level the user is ** DONE
+ 2.the maximum levels and the possibility to modify it  after win or loose a game. * (So it should indicate the maximum levels
+ before initializing the game, possibility to modify but blocked during game till you win or loose)
  3.the number of times the user loose and win.

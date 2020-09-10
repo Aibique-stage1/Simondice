@@ -4,6 +4,8 @@ const violeta=document.getElementById('violeta')
 const naranja=document.getElementById('naranja')
 const verde=document.getElementById('verde')
 const btnEmpezar=document.getElementById('btnEmpezar')
+const nLevel= document.getElementById('nLevel');
+const nMaxLevel=document.getElementById('nMaxLevel');
 const NIVEL_MAX=10
 
 //2.Creating the Prototype of "Juego"
@@ -65,6 +67,7 @@ class Juego {
   //In this case is 10.
   creadorSecuencia(){
     this.secuencia=new Array(NIVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
+    nMaxLevel.innerText=`${NIVEL_MAX}`;
   }
 
 
@@ -168,18 +171,22 @@ detectarColor(e){
   //Finally if the level it's equal to the maximum level--> User passed the game "CONGRATULATIONS"
   //Otherwise call all the methods again for the next level.
   if(numeroColor===this.secuencia[this.subnivel]){
-  this.subnivel++
+  this.subnivel++;
+
   if(this.subnivel===this.level){
-    this.level++
+    this.level++;
+    nLevel.innerText=`${this.level}`
     this.eliminarEventosClick()
     if(this.level=== (NIVEL_MAX+1)){
-      this.ganoElJuego()
+      this.ganoElJuego();
+      nLevel.innerText=`0`;
     }else{
       setTimeout(this.sublevelPosition,1500)
     }
   }
 }else{
   this.perdioElJuego()
+  nLevel.innerText=`0`;
 }
 }
 

@@ -96,17 +96,30 @@ header ul{
 }
 
 header li{
+  box-sizing: border-box;
   color: white;
   list-style: none;
   background-color: #2c3e50;
   padding: 6px;
   border-radius:5px;
+  position: relative;
+  display: flex;
+  justify-items: center;
+  align-items:center;
 }
 
 .nLevel,
 .nMaxLevel{
-  display: inline-block;
+  display: flex;
   width: 6rem;
   height: 2rem;
-  text-align:center;
+  align-items: center;
+  justify-content:center;
+}
+
+.boxTitle{
+  position: absolute;
+  width: 5rem;
+  right:105%;
+  text-align-last: right;
 }
