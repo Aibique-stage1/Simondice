@@ -3,9 +3,12 @@
 The classic game "Simon says", Using a library for the alert messages.
 Here I am practicing the promises and the creation of Prototipes in JavaScript.
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 It stars with 10 levels, the number of levels can be modify in the code changing the value of the MAX_LEVEL variable.
 =======
+=======
+>>>>>>> javascript2
 It stars with 10 levels, the number of levels can be modify in the code changing the value of the MAX_LEVEL variable.
 
 ## Game Rules
@@ -31,6 +34,7 @@ The Solution to make this Game through Javascript will consist in resolving the 
 ## Updates
 
  1.the level the user is ** DONE
+<<<<<<< HEAD
  2.the maximum levels and the possibility to modify it  after win or loose a game. **
     *Input range added to the third "li" element, css implementations to design our own slider.*
     *After connected through "ids" and showing the value of the max level with javascript function*
@@ -43,3 +47,8 @@ The Solution to make this Game through Javascript will consist in resolving the 
  3. HTML, Translate into English.
  4. Don't forge to create branches in these cases.
 >>>>>>> Stashed changes
+=======
+ 2.the maximum levels and the possibility to modify it  after win or loose a game. * (So it should indicate the maximum levels
+ before initializing the game, possibility to modify but blocked during game till you win or loose)
+ 3.the number of times the user loose and win.
+>>>>>>> javascript2
