@@ -17,7 +17,7 @@ slider.oninput = function(){
   selector.style.left = this.value + "%";
 }
 
-let NIVEL_MAX;
+// let NIVEL_MAX;
 
 //2.Creating the Prototype of "Juego"
 //(Class)--> it's basically a "special function", and object you assign a name or not. and when you call that 
@@ -77,9 +77,10 @@ class Juego {
   // Called by "constructor"--> It will create the sequence,that is the maximum of levels.
   //In this case is 10.
   creadorSecuencia(){
-    NIVEL_MAX=slider.value;
-    this.secuencia=new Array(NIVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
-    nMaxLevel.innerText=`${NIVEL_MAX}`;
+    let levelsMax=slider.value;
+    this.NIVEL_MAX= parseInt(levelsMax);
+    this.secuencia=new Array(this.NIVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
+    nMaxLevel.innerText=`${this.NIVEL_MAX}`;
   }
 
 
@@ -189,7 +190,7 @@ detectarColor(e){
     this.level++;
     nLevel.innerText=`${this.level}`
     this.eliminarEventosClick()
-    if(this.level=== (NIVEL_MAX+1)){
+    if(this.level=== (this.NIVEL_MAX+1)){
       this.ganoElJuego();
       nLevel.innerText=`0`;
     }else{
