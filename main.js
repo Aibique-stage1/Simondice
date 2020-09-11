@@ -6,7 +6,18 @@ const verde=document.getElementById('verde')
 const btnEmpezar=document.getElementById('btnEmpezar')
 const nLevel= document.getElementById('nLevel');
 const nMaxLevel=document.getElementById('nMaxLevel');
-const NIVEL_MAX=10
+
+let slider=document.getElementById("slider");
+let selector=document.getElementById("selector");
+let selectedValue = document.getElementById("selectedValue");
+
+selectedValue.innerHTML = slider.value;
+slider.oninput = function(){
+  selectedValue.innerHTML = slider.value;
+  selector.style.left = this.value + "%";
+}
+
+let NIVEL_MAX;
 
 //2.Creating the Prototype of "Juego"
 //(Class)--> it's basically a "special function", and object you assign a name or not. and when you call that 
@@ -66,6 +77,7 @@ class Juego {
   // Called by "constructor"--> It will create the sequence,that is the maximum of levels.
   //In this case is 10.
   creadorSecuencia(){
+    NIVEL_MAX=slider.value;
     this.secuencia=new Array(NIVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
     nMaxLevel.innerText=`${NIVEL_MAX}`;
   }
