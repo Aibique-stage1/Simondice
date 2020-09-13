@@ -1,9 +1,9 @@
 // Constants for color, button and maximum levels of the game. Actually:10;
-const celeste=document.getElementById('celeste')
-const violeta=document.getElementById('violeta')
-const naranja=document.getElementById('naranja')
-const verde=document.getElementById('verde')
-const btnEmpezar=document.getElementById('btnEmpezar')
+const cyan=document.getElementById('cyan')
+const violet=document.getElementById('violet')
+const orange=document.getElementById('orange')
+const green=document.getElementById('green')
+const btnStart=document.getElementById('btnStart')
 const nLevel= document.getElementById('nLevel');
 const nMaxLevel=document.getElementById('nMaxLevel');
 
@@ -16,7 +16,7 @@ slider.oninput = function(){
   selector.style.left = this.value + "%";
 }
 
-// let NIVEL_MAX;
+// let LEVEL_MAX;
 
 //2.Creating the Prototype of "Juego"
 //(Class)--> it's basically a "special function", and object you assign a name or not. and when you call that 
@@ -24,14 +24,14 @@ slider.oninput = function(){
 //(Constructor)--> that are methods to initializing a class. There can be only one per class.
 //(This)-->to point out the property and methods of the objects.
 //(.bing())--> It relates to the object or property of the object you indicate.
-class Juego {
+class Game {
   // This will be the Prototype of the Object "Juego".
   // As we mentioned, the constructor initializing the Prototype.
   constructor() {
   //So basically there are 4 methods, first it's binding and the rest aren't.
-    this.inicializar=this.inicializar.bind(this)
-    this.inicializar()
-    this.creadorSecuencia()
+    this.initialize=this.initialize.bind(this)
+    this.initialize()
+    this.sequenceMaker()
     setTimeout(this.sublevelPosition,500)
   }
 
@@ -41,30 +41,30 @@ class Juego {
 
   //1.INITIALIZATION-->
   // called by "constructor"--> It will initializing the Game.
-  inicializar (){
+  initialize (){
     // 2 binding functions and one without it.
     this.sublevelPosition=this.sublevelPosition.bind(this)
-    this.detectarColor=this.detectarColor.bind(this)
-    this.toggleBtnEmpezar()
+    this.detectColor=this.detectColor.bind(this)
+    this.toggleBtnStart()
 
     // The level we will start for.
     this.level =1
 
     // Objects of the colors that we will find.
     this.color={
-      celeste,
-      violeta,
-      naranja,
-      verde
+      cyan,
+      violet,
+      orange,
+      green
     }
   }
 
-  // called by "Inicializar"--> Delete the button if it was before or not.
-  toggleBtnEmpezar(){
-    if(btnEmpezar.classList.contains('hide')){
-      btnEmpezar.classList.remove('hide')
+  // called by "Initialize"--> Delete the button if it was before or not.
+  toggleBtnStart(){
+    if(btnStart.classList.contains('hide')){
+      btnStart.classList.remove('hide')
     }else{
-      btnEmpezar.classList.add('hide')
+      btnStart.classList.add('hide')
     }
   }
 
@@ -75,11 +75,11 @@ class Juego {
   //2.CREATION OF THE SEQUENCE.
   // Called by "constructor"--> It will create the sequence,that is the maximum of levels.
   //In this case is 10.
-  creadorSecuencia(){
+  sequenceMaker(){
     let levelsMax=slider.value;
-    this.NIVEL_MAX= parseInt(levelsMax);
-    this.secuencia=new Array(this.NIVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
-    nMaxLevel.innerText=`${this.NIVEL_MAX}`;
+    this.LEVEL_MAX= parseInt(levelsMax);
+    this.sequence=new Array(this.LEVEL_MAX).fill(0).map(n=>Math.floor(Math.random()*4))
+    nMaxLevel.innerText=`${this.LEVEL_MAX}`;
   }
 
 
@@ -91,35 +91,35 @@ class Juego {
   //It will illuminate the Sequence in the respective level the user is.
   //It will detect the clicks the user make on the object.
   sublevelPosition(){
-    this.subnivel=0
-    this.iluminarSecuencia()
-    this.detectarClicks()
+    this.sublevel=0
+    this.illuminateSequence()
+    this.detectClick()
   }
 
-  // Called by "iluminarSecuencia"-->It transform the number into a colour.
-  numeroAColor(numero){
-    switch (numero) {
+  // Called by "illuminateSequence"-->It transform the number into a colour.
+  numberToColor(number){
+    switch (number) {
       case 0:
-      return 'celeste'
+      return 'cyan'
       case 1:
-      return 'violeta'
+      return 'violet'
       case 2:
-      return 'naranja'
+      return 'orange'
       case 3:
-      return 'verde'
+      return 'green'
     }
   }
 
   //Called by ""-->It transform the colour into a number.
-  colorANumero(color){
+  colorToNumber(color){
     switch (color) {
-      case 'celeste':
+      case 'cyan':
       return 0
-      case 'violeta':
+      case 'violet':
       return 1
-      case 'naranja':
+      case 'orange':
       return 2
-      case 'verde':
+      case 'green':
       return 3
     }
   }
@@ -127,95 +127,95 @@ class Juego {
   //Called by "sublevelPosition"--> It does illuminate the respective colours depending in wish level the user is.
   //Ex--> level 3(there are 10 levels because Sequence)--->colors to illuminate are 3.
   //First it transform the numbers of the Sequence into color 
-  //Finally it illuminate the colors with the method "iluminarColor"
-  iluminarSecuencia(){
+  //Finally it illuminate the colors with the method "illuminateColor"
+  illuminateSequence(){
     for (let i = 0; i < this.level; i++) {
-      const color=this.numeroAColor(this.secuencia[i])
-      setTimeout(()=>this.iluminarColor(color),1000*i)
+      const color=this.numberToColor(this.sequence[i])
+      setTimeout(()=>this.illuminateColor(color),1000*i)
   }
 }
 
-// Called by "iluminarSecuencia"-->It does illuminate the colors it's sent.
-  iluminarColor(color){
+// Called by "illuminateSequence"-->It does illuminate the colors it's sent.
+illuminateColor(color){
     this.color[color].classList.add('light')
-    setTimeout(()=>this.desiluminarColor(color),350)
+    setTimeout(()=>this.turnOffColor(color),350)
 }
 
-// Called by "iluminarColor"--> To give the effect, when it's illuminate the colour after a certain period of time
+// Called by "illuminateColor"--> To give the effect, when it's illuminate the colour after a certain period of time
 //this function it's called to switch off the lightness of the colour.
-desiluminarColor(color){
+turnOffColor(color){
   this.color[color].classList.remove('light')
 }
 
 // Called by "sublevelPosition"--> It register the click events the user make on the colours.
-detectarClicks(){
+detectClick(){
   // It associate and event to each colour, at the same time it calls the method to detect the color.
-  this.color.celeste.addEventListener('click',this.detectarColor)
-  this.color.violeta.addEventListener('click',this.detectarColor)
-  this.color.naranja.addEventListener('click',this.detectarColor)
-  this.color.verde.addEventListener('click',this.detectarColor)
+  this.color.cyan.addEventListener('click',this.detectColor)
+  this.color.violet.addEventListener('click',this.detectColor)
+  this.color.orange.addEventListener('click',this.detectColor)
+  this.color.green.addEventListener('click',this.detectColor)
 }
 
-// Called by "detectarColor"--> After the clicks have been register and test, it removes the event click.
-eliminarEventosClick(){
-  this.color.celeste.removeEventListener('click',this.detectarColor)
-  this.color.violeta.removeEventListener('click',this.detectarColor)
-  this.color.naranja.removeEventListener('click',this.detectarColor)
-  this.color.verde.removeEventListener('click',this.detectarColor)
+// Called by "detectColor"--> After the clicks have been register and test, it removes the event click.
+omitEventsClick(){
+  this.color.cyan.removeEventListener('click',this.detectColor)
+  this.color.violet.removeEventListener('click',this.detectColor)
+  this.color.orange.removeEventListener('click',this.detectColor)
+  this.color.green.removeEventListener('click',this.detectColor)
 }
 
 
 
-// Called by "detectarClicks"--> MAIN METHOD> It does compare the color the user had made click on, 
+// Called by "detectClick"--> MAIN METHOD> It does compare the color the user had made click on, 
 //It throws succeed or error message to the user if he made a mistake.
 // It will pass to the next level if the click sequence was successful.
-detectarColor(e){
+detectColor(e){
   //e.target.dataset.color--> which is the colour where the event has occur.
   //It transform the color into a number to make it easier to compare with the Sequence numbers.
   //Illuminate the colours the user had made click on.
-  const colorDetectado= e.target.dataset.color
-  const numeroColor=this.colorANumero(colorDetectado)
-  this.iluminarColor(colorDetectado)
+  const colorDetected= e.target.dataset.color
+  const numberColor=this.colorToNumber(colorDetected)
+  this.illuminateColor(colorDetected)
 
   //Once it's a number the color, it's time to compare it with the number in the Sequence.
   //If both are the same, the sublevel will increase.
   //If the sublevel is the same as the level, then increase the level.
   //Finally if the level it's equal to the maximum level--> User passed the game "CONGRATULATIONS"
   //Otherwise call all the methods again for the next level.
-  if(numeroColor===this.secuencia[this.subnivel]){
-  this.subnivel++;
+  if(numberColor===this.sequence[this.sublevel]){
+  this.sublevel++;
 
-  if(this.subnivel===this.level){
+  if(this.sublevel===this.level){
     this.level++;
     nLevel.innerText=`${this.level}`
-    this.eliminarEventosClick()
-    if(this.level=== (this.NIVEL_MAX+1)){
-      this.ganoElJuego();
+    this.omitEventsClick()
+    if(this.level=== (this.LEVEL_MAX+1)){
+      this.wonGame();
       nLevel.innerText=`0`;
     }else{
       setTimeout(this.sublevelPosition,1500)
     }
   }
 }else{
-  this.perdioElJuego()
+  this.lostGame()
   nLevel.innerText=`0`;
 }
 }
 
 
 
-//Called by "detectarColor"-->Message showed once the user pass all the levels.
-ganoElJuego(){
-  swal('Felicitaciones','Ganaste el Juego','success')
-  .then(this.inicializar)
+//Called by "detectColor"-->Message showed once the user pass all the levels.
+wonGame(){
+  swal('Congratulations','you won the game','success')
+  .then(this.initialize)
 }
 
-//Called by "detectarColor"-->Message showed once the user make a mistake.
-perdioElJuego(){
-  swal('Error','Lo siento, has perdido','error')
+//Called by "detectColor"-->Message showed once the user make a mistake.
+lostGame(){
+  swal('Error','Sorry, you lost','error')
   .then(()=>{
-    this.eliminarEventosClick()
-    this.inicializar()
+    this.omitEventsClick()
+    this.initialize()
   })
 }
 
@@ -223,9 +223,9 @@ perdioElJuego(){
 
 
 
-// The button "start the game", has an attribute onclick that calls this function
-//This function called "empezarJuego" does create a new Object called "Juego"
-function empezarJuego(){
+// The button "Start Game!", has an attribute onclick that calls this function
+//This function called "startGame" does create a new Object called "game"
+function startGame(){
   // This object has parentesis because we will work on it later.
-  window.juego= new Juego()
+  window.game= new Game()
 }

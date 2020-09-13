@@ -1,5 +1,12 @@
 *{
   font-family: 'Arial';
+  box-sizing: border-box;
+}
+:root{
+  /* COLORS:--------------------------------------------- */
+  --header-main-color:#167a83;
+  --header-fonts-color:#d9eef3;
+  --header-secondary-color:#2c3e50;
 }
 
 body {
@@ -34,45 +41,45 @@ body {
   float: left;
 }
 
-.celeste {
+.cyan {
   background: #22a6b3;
 }
 
-.celeste.light {
+.cyan.light {
   background: #7ed6df;
 }
 
-.violeta {
+.violet {
   background: #be2edd;
 }
 
-.violeta.light {
+.violet.light {
   background: #e056fd;
 }
 
-.naranja {
+.orange {
   background: #f0932b;
 }
 
-.naranja.light {
+.orange.light {
   background: #ffbe76;
 }
 
-.verde {
+.green {
   background: #6ab04c;
 }
 
-.verde.light {
+.green.light {
   background: #badc58;
 }
 
 .btn-start {
-  width: 400px;
-  height: 100px;
   background: #d9eef3;
   color: #2c3e50;
-  font-size: 2.5rem;
   position: absolute;
+  width: 400px;
+  height: 100px;
+  font-size: 2.5rem;
   top: calc(50% - 50px);
   left: calc(50% - 200px);
 }
@@ -82,60 +89,60 @@ body {
 }
 
 header{
+  background-color: var(--header-main-color);
   position: absolute;
-  top: 0;
   width: 100%;
-  background-color: #167a83;
   height: 5rem;
+  top: 0;
   padding: 0;
 }
 
 header ul{
-  display: flex;
   justify-content: space-evenly;
+  display: flex;
 }
 
 header li{
-  box-sizing: border-box;
-  color: white;
-  list-style: none;
-  background-color: #2c3e50;
-  padding: 6px;
-  border-radius:5px;
-  position: relative;
+  color: var(--header-fonts-color);
+  background-color: var(--header-secondary-color);
   display: flex;
+  position: relative;
   justify-items: center;
   align-items:center;
+  padding: 6px;
+  border-radius:5px;
+  list-style: none;
 }
 
 .nLevel,
 .nMaxLevel{
-  display: flex;
   width: 6rem;
   height: 2rem;
+  display: flex;
   align-items: center;
   justify-content:center;
 }
 
 .boxTitle{
   position: absolute;
-  width: fit-content;
   right:105%;
+  width: fit-content;
   text-align-last: right;
 }
 
 #slider{
-  -webkit-appearance:none;
+  background-color: var(--header-fonts-color);
   width:100%;
   height:5px;
   outline:none;
   border-radius:3px;
+  -webkit-appearance:none;
 }
 #slider::-webkit-slider-thumb{
   -webkit-appearance:none;
+  position:relative;
+  z-index:10;  
   width:48px;
   height:48px;
   cursor:pointer;
-  position:relative;
-  z-index:10;  
 }
