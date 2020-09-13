@@ -8,12 +8,11 @@ const nLevel= document.getElementById('nLevel');
 const nMaxLevel=document.getElementById('nMaxLevel');
 
 let slider=document.getElementById("slider");
-let selector=document.getElementById("selector");
-let selectedValue = document.getElementById("selectedValue");
+// let selectedValue = document.getElementById("selectedValue");
 
-selectedValue.innerHTML = slider.value;
+nMaxLevel.innerHTML = slider.value;
 slider.oninput = function(){
-  selectedValue.innerHTML = slider.value;
+  nMaxLevel.innerHTML = slider.value;
   selector.style.left = this.value + "%";
 }
 
