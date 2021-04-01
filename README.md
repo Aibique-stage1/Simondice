@@ -1,37 +1,83 @@
-# Simondice
+# Simon dice, the Game 👽
 
-The classic game "Simon says", Using a library for the alert messages.
-Here I am practicing the promises and the creation of Prototipes in JavaScript.
+Herzlich Willkomen! Diese ist meine eCommerce. Ich habe das gemacht mit React. :D
 
-It stars with 10 levels, the number of levels can be modify in the code changing the value of the MAX_LEVEL variable.
-It stars with 10 levels, the number of levels can be modify in the code changing the value of the MAX_LEVEL variable.
+## Status
+---
 
-## Game Rules
+Depoyed [Status here] Here is the link: https://chr-jimenez.com/
 
-In this version of the famous game "Simon says", the user will have in front four colours:
-blue, green, orange and violet.
+## Getting Started 🛸
 
-There will be 10 levels as standard. In the first level it will illuminate 1 color randomly and as it increase the levels it does the colours to illuminate. The user must click after the colours that have been illuminated.
+---
 
-If the user makes a mistake, it will show a message "sorry, you loose" otherwise the message will be "Congratulations! You won the game". In both cases the game will reset after showing the message and the button "Start Game".
+> Survivor Kit
 
-## Solution
+| Technology | Documentation                                      |
+| ---------- | -------------------------------------------------- |
+| Node       | https://www.npmjs.com/get-npm                      |
+| Yarn       | https://legacy.yarnpkg.com/lang/en/docs/install/   |
+| Prettier   | https://prettier.io/docs/en/install.html           |
+| Eslint     | https://eslint.org/docs/user-guide/getting-started |
 
-The Solution to make this Game through Javascript will consist in resolving the following points.
+---
 
-1.Once clicked the button "Start Game" it must disappear the button and initializing the game.
-2.It must be created a Sequence of numbers randomly, a sequence of the maximum level.
-3.It must initializing in the level number one, and illuminate the colours respective to the level.
-4.After showing the sublevel of colours, it must detected the clicks the user makes.
-5.In each click it must compare the colour with the colour made by the computer.
-6.The browser will show messages of error or succeed to the user. then initializing again the game.
+> Installation
 
-## Updates
+```sh
+$ yarn install
+```
 
- 1.the level the user is ** DONE
- 2.the maximum levels and the possibility to modify it  after win or loose a game. **
-    *Input range added to the third "li" element, css implementations to design our own slider.*
-    *After connected through "ids" and showing the value of the max level with javascript function*
+---
+
+> Local
+
+```sh
+$ yarn dev
+```
+
+---
+
+> Deploy
+
+```
+$ yarn start
+$ yarn build
+```
+
+---
+
+> Testing
+
+```sh
+$ yarn test
+```
+
+## Issues 🐙
+
+---
+
+> Errors
+
+> Bugs
+
+> FAQ
+
+## Versioning
+
+---
+
+Node v14.15.1
+
+Yarn v1.22.10.
+
+Cristofher v0.1.35 -> v0.2.3 soon...
+
+## Authors 👾
+
+---
+
+[Antonio Jimenez](https://github.com/Tonnraus) |
     *In the JS code the constant NIVEL_MAX has been removed and update by a variable inside the object*
  3.the number of times the user loose and win.
 
